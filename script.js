@@ -12,9 +12,9 @@ function darkMode() {
     const mq = window.matchMedia( "(max-width: 1100px)" );
     // Applying styles to correct media query
     if (mq.matches) {
-        navLinks.style.backgroundColor = 'rgb(0 0 0 / 50%)';
+        navLinks.style.backgroundColor = 'rgb(0 0 0 / 90%)';
     } 
-    nav.style.backgroundColor = 'rgb(0 0 0 / 70%)';
+    nav.style.backgroundColor = 'rgb(0 0 0 / 90%)';
     textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
     toggleIcon.childNodes[1].classList.replace('fa-sun','fa-moon');
     imageMode('dark')
@@ -25,9 +25,9 @@ function lightMode() {
     const mq = window.matchMedia( "(max-width: 1100px)" );
     // Applying styles to correct media query
     if (mq.matches) {
-        navLinks.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+        navLinks.style.backgroundColor = 'rgb(255 255 255 / 90%)';
     }
-    nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+    nav.style.backgroundColor = 'rgb(255 255 255 / 90%)';
     textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
     toggleIcon.childNodes[1].classList.replace('fa-moon','fa-sun');
     imageMode('light');
