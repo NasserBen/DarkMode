@@ -1,36 +1,45 @@
 const navSlide = () => {
-    const burger = document.querySelector('.burger')
-    const nav = document.querySelector('.nav-links')
-    const navLinks = document.querySelectorAll('.nav-links li')
-  
-    burger.addEventListener('click', () => {
-      //Toggle Nav
-      nav.classList.toggle('nav-active')
-      //Animate Links
-      navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-          link.style.animation = ''
-        } else {
-          link.style.animation = `navLinkFade 0.5s ease forwards  ${index / 7 +
-            0.3}s`
-        }
-        // Don't deactivate nav after dark mode slider toggle
-        if(link.nextElementSibling) {link.addEventListener('click', resetNav)}
-        
-      })
-      //Animate Burger
-      burger.classList.toggle('toggle')
-    })
-  
-    function resetNav () {
-      burger.classList.toggle('toggle')
-      nav.classList.toggle('nav-active')
+  const burger = document.querySelector('.burger')
+  const nav = document.querySelector('.nav-links')
+  const navLinks = document.querySelectorAll('.nav-links li')
+  let closed = true
 
-      navLinks.forEach((link,index) => {
-        if (link.style.animation) {link.style.animation = '';} 
-      });
+  burger.addEventListener('click', openNav)
+  nav.addEventListener('click', e => {
+    if (e.target !== e.currentTarget) return
+    closeNav()
+  })
+
+  function openNav () {
+    if (!closed) {
+      closeNav()
+      return
     }
+    closed = false
+
+    //Animate Burger
+    burger.classList.toggle('toggle')
+    //Toggle Nav
+    nav.classList.toggle('nav-active')
+    //Animate Links
+    navLinks.forEach((link, i) => {
+      // Add nav link animations
+      link.style.animation = `navLinkFade 0.5s ease forwards  ${i / 7 + 0.3}s`
+      // Check if darkmode switch toggle, else close nav;
+      if (link.nextElementSibling) {
+        link.addEventListener('click', closeNav)
+      }
+    })
   }
-  // On load
-  navSlide()
-  
+  function closeNav () {
+    closed = true
+    //Reset Animated Burger
+    burger.classList.toggle('toggle')
+    //Close Nav
+    nav.classList.toggle('nav-active')
+    // Reset Nav Link Animation
+    navLinks.forEach(link => (link.style.animation = ''))
+  }
+}
+// On load
+navSlide()

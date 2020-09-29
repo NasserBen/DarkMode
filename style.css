@@ -58,7 +58,6 @@ h2 {
 /* Navigation */
 nav {
   z-index: 10;
-  margin: 0px;
   position: fixed;
   font-size: 24px;
   letter-spacing: 3px;
@@ -83,13 +82,12 @@ nav {
   justify-content: space-between;
   width: 60%;
   align-items: center;
-  
 }
 
 .nav-links li {
-  list-style: none;
-  
+  list-style: none;  
 }
+
 .nav-links li:last-child {
   margin-right: 20px;
 }
@@ -309,24 +307,28 @@ input:checked + .slider::before {
   body {
     overflow-x: hidden;
   }
+  
   .nav-links{
     position: absolute;
-    font-weight: bold;
     right: 0;
-    height: 91vh;
-    top:9vh;
-    background: rgb(255 255 255 / 90%);
-    color: var(--on-primary);
+    height: 95vh;
+    top: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
+    font-weight: bold;
+    background: rgb(255 255 255 / 90%);
+    color: var(--on-primary);
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
   } 
   .nav-links li {
     opacity: 0;
+  }
+  .nav-links li:last-child {
+    margin-bottom: 70px;
   }
   .burger {
     display: block;
@@ -363,9 +365,13 @@ input:checked + .slider::before {
   }
   .nav-links {
     width: 100%;
-    height: 91.45vh;
-    top: 8.55vh;
+    height: 95vh;
+    top: 100%;
   }
+  .nav-links li:last-child {
+    margin-bottom: 70px;
+  }
+  
 }
 
 /* Animate nav links */
@@ -388,5 +394,4 @@ input:checked + .slider::before {
 }
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px,-6px);
-  
 }
