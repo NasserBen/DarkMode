@@ -59,11 +59,10 @@ h2 {
 nav {
   z-index: 10;
   position: fixed;
-  font-size: 24px;
+  /* font-size: 24px; */
   letter-spacing: 3px;
   padding: 5px;
   width: 100vw;
-  background: rgb(255 255 255 / 90%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,11 +70,8 @@ nav {
 
 .logo {
   margin: 0;
-  font-size: 50px;
-  font-weight: bold;
-  font-family: sans-serif;
-  color: var(--on-background);
 }
+
 .nav-links {
   margin: 0;
   display: flex;
